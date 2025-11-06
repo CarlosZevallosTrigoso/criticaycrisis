@@ -1,0 +1,72 @@
+/* --- Configuración Global --- */
+body {
+    /* 1. Configuración del fondo */
+    background-image: url('assets/fondo.png');
+    background-size: cover;          /* Cubre toda la pantalla */
+    background-position: center;     /* Centra la imagen */
+    background-attachment: fixed;    /* El fondo no se mueve con el scroll */
+
+    /* 2. Centrado del contenido */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px; /* Evita que la caja pegue a los bordes en móviles */
+
+    /* 3. Estética de la fuente */
+    font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+    color: #000;
+    box-sizing: border-box;
+}
+
+/* --- Caja Principal Desplegable (<details>) --- */
+.info-box {
+    background-color: white;
+    border: 1px solid #000;
+    max-width: 650px; /* Ancho máximo del contenedor */
+    
+    /* Quitamos el padding para que los hijos lo controlen */
+    padding: 0; 
+}
+
+/* --- La Pregunta (El <summary> clickeable) --- */
+.info-question {
+    display: block; /* Para que ocupe todo el ancho */
+    padding: 24px;
+    font-size: 1.1rem;
+    font-weight: 700; /* Negrita */
+    line-height: 1.5;
+    cursor: pointer;
+    
+    /* El borde que separa la pregunta del contenido (como en la imagen) */
+    border-bottom: 1px solid #eee;
+
+    /* Quitamos el marcador de flecha por defecto */
+    list-style: none;
+}
+
+/* Cuando la caja está CERRADA, no mostramos el borde de abajo */
+.info-box:not([open]) .info-question {
+    border-bottom: none;
+}
+
+/* Ocultar marcador en todos los navegadores */
+.info-question::-webkit-details-marker {
+    display: none;
+}
+
+.info-question::marker {
+    display: none;
+}
+
+/* --- El Contenido Desplegable (El recuadro de abajo) --- */
+.info-content {
+    padding: 24px;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.info-content p {
+    margin: 0; /* Quitamos el margen por defecto del párrafo */
+}
