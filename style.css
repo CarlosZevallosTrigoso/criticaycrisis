@@ -78,12 +78,12 @@ body {
 
 /* AÑADIDO: Contenido del indicador (Estado CERRADO) */
 .indicator::before {
-    content: 'saber más [+]';
+    content: 'más [+]';
 }
 
 /* AÑADIDO: Contenido del indicador (Estado ABIERTO) */
 .info-box[open] .indicator::before {
-    content: 'saber menos [-]';
+    content: 'menos [-]';
 }
 
 
