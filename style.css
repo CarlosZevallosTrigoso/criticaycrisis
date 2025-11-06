@@ -70,14 +70,18 @@ body {
     font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
 }
 
-/* Contenido del indicador (Estado CERRADO) */
+/* CAMBIO AQUÍ: 
+    Contenido del indicador (Estado CERRADO) 
+*/
 .indicator::before {
-    content: 'saber más [+]';
+    content: 'más [+]';
 }
 
-/* Contenido del indicador (Estado ABIERTO) */
+/* CAMBIO AQUÍ: 
+    Contenido del indicador (Estado ABIERTO) 
+*/
 .info-box[open] .indicator::before {
-    content: 'saber menos [-]';
+    content: 'menos [-]';
 }
 
 
