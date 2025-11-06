@@ -86,6 +86,9 @@ body {
     padding: 24px;
     font-size: 1rem;
     line-height: 1.6;
+    
+    /* CAMBIO AQUÍ: Fondo gris claro (equivalente a 4% de negro) */
+    background-color: #F5F5F5; 
 }
 .info-content p:first-child {
     margin-top: 0;
@@ -129,7 +132,7 @@ body {
     line-height: 1.5;
 }
 
-/* --- AÑADIDO: Estilos para la sección de Contacto --- */
+/* --- Estilos para la sección de Contacto --- */
     
 .contact-details {
     margin-top: 20px; /* Espacio separador de la nota al pie */
