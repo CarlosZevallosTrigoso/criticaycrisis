@@ -70,16 +70,12 @@ body {
     font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
 }
 
-/* CAMBIO AQUÍ: 
-    Contenido del indicador (Estado CERRADO) 
-*/
+/* Contenido del indicador (Estado CERRADO) */
 .indicator::before {
     content: 'más [+]';
 }
 
-/* CAMBIO AQUÍ: 
-    Contenido del indicador (Estado ABIERTO) 
-*/
+/* Contenido del indicador (Estado ABIERTO) */
 .info-box[open] .indicator::before {
     content: 'menos [-]';
 }
@@ -131,4 +127,54 @@ body {
     margin-top: 16px;
     margin-bottom: 0;
     line-height: 1.5;
+}
+
+/* --- AÑADIDO: Estilos para la sección de Contacto --- */
+    
+.contact-details {
+    margin-top: 20px; /* Espacio separador de la nota al pie */
+}
+
+.contact-trigger {
+    display: inline-block; /* Para que no ocupe todo el ancho */
+    font-size: 0.75rem;    /* Mismo tamaño que la nota al pie */
+    color: #444;
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;      /* Oculta marcador por defecto */
+    transition: color 0.2s ease;
+}
+
+.contact-trigger:hover {
+    color: #000; /* Pequeño efecto hover */
+}
+
+.contact-trigger::-webkit-details-marker {
+    display: none;
+}
+.contact-trigger::marker {
+    display: none;
+}
+
+/* El contenido del contacto */
+.contact-content {
+    padding-top: 10px;
+    font-size: 0.75rem;
+    color: #444;
+    line-height: 1.5;
+}
+
+.contact-content p {
+    margin: 0;
+}
+
+/* Estilo para el enlace de email */
+.contact-content a {
+    color: #000; /* Color negro para que resalte */
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+.contact-content a:hover {
+    color: #555;
 }
