@@ -10,7 +10,7 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 20px;
-    font-family: 'IBM+Plex+Mono', 'Courier New', Courier, monospace;
+    font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
     color: #000;
     box-sizing: border-box;
 }
@@ -31,7 +31,7 @@ body {
 
 /* --- La Pregunta (El <summary> clickeable) --- */
 .info-question {
-    display: block; /* Necesario para que ::before funcione bien */
+    display: block;
     padding: 24px;
     font-size: 1.1rem;
     font-weight: 700;
@@ -49,29 +49,43 @@ body {
     display: none;
 }
 
-/* CAMBIO AQUÍ: 
-    Añadimos el símbolo [+] por defecto 
+/* ELIMINADO: 
+   Se han borrado las reglas .info-question::before 
+   y .info-box[open] > .info-question::before
 */
-.info-question::before {
-    content: '[+] '; /* Símbolo por defecto (cerrado) */
-    font-weight: 700;
-    margin-right: 8px; /* Espacio entre el símbolo y el texto */
-    font-family: 'Courier New', Courier, monospace; /* Asegura un look "cuadrado" */
-}
-
-/* CAMBIO AQUÍ: 
-    Cuando el <details> padre está [open], 
-    cambiamos el contenido a [-] 
-*/
-.info-box[open] > .info-question::before {
-    content: '[-] '; /* Símbolo cuando está abierto */
-}
 
 
 /* Cuando la caja está CERRADA, no mostramos el borde de abajo */
 .info-box:not([open]) .info-question {
     border-bottom: none;
 }
+
+
+/* --- AÑADIDO: Texto de la pregunta (dentro del summary) --- */
+.question-text {
+    display: block; /* Ocupa su propia línea */
+}
+
+/* --- AÑADIDO: El indicador "saber más" --- */
+.indicator {
+    display: block; /* Ocupa su propia línea, debajo del texto */
+    margin-top: 20px; /* Espacio entre la pregunta y el indicador */
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #333;
+    font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+}
+
+/* AÑADIDO: Contenido del indicador (Estado CERRADO) */
+.indicator::before {
+    content: 'saber más [+]';
+}
+
+/* AÑADIDO: Contenido del indicador (Estado ABIERTO) */
+.info-box[open] .indicator::before {
+    content: 'saber menos [-]';
+}
+
 
 /* --- El Contenido Desplegable (El recuadro de abajo) --- */
 .info-content {
@@ -109,7 +123,6 @@ body {
 
 /* --- Estilos para la 'letra pequeña' --- */
 .info-content .footnote {
-    /* CAMBIO AQUÍ: puntaje más chico */
     font-size: 0.75rem;
     color: #444;
     margin-top: 16px;
