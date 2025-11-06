@@ -49,24 +49,18 @@ body {
     display: none;
 }
 
-/* ELIMINADO: 
-   Se han borrado las reglas .info-question::before 
-   y .info-box[open] > .info-question::before
-*/
-
-
 /* Cuando la caja está CERRADA, no mostramos el borde de abajo */
 .info-box:not([open]) .info-question {
     border-bottom: none;
 }
 
 
-/* --- AÑADIDO: Texto de la pregunta (dentro del summary) --- */
+/* --- Texto de la pregunta (dentro del summary) --- */
 .question-text {
     display: block; /* Ocupa su propia línea */
 }
 
-/* --- AÑADIDO: El indicador "saber más" --- */
+/* --- El indicador "saber más" --- */
 .indicator {
     display: block; /* Ocupa su propia línea, debajo del texto */
     margin-top: 20px; /* Espacio entre la pregunta y el indicador */
@@ -76,14 +70,14 @@ body {
     font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
 }
 
-/* AÑADIDO: Contenido del indicador (Estado CERRADO) */
+/* Contenido del indicador (Estado CERRADO) */
 .indicator::before {
-    content: 'más [+]';
+    content: 'saber más [+]';
 }
 
-/* AÑADIDO: Contenido del indicador (Estado ABIERTO) */
+/* Contenido del indicador (Estado ABIERTO) */
 .info-box[open] .indicator::before {
-    content: 'menos [-]';
+    content: 'saber menos [-]';
 }
 
 
@@ -98,9 +92,9 @@ body {
     margin-bottom: 0;
 }
 
-/* --- Estilos para el botón --- */
+/* --- Estilos para el botón (ahora un enlace) --- */
 .cta-button {
-    /* ... (Estilos del botón igual que antes) ... */
+    display: block; /* Asegura que el <a> ocupe todo el ancho */
     width: 100%;
     box-sizing: border-box;
     background-color: #000;
@@ -114,7 +108,12 @@ body {
     text-align: center;
     cursor: pointer;
     transition: background-color 0.2s ease, color 0.2s ease;
+
+    /* Quita el subrayado por defecto del enlace */
+    text-decoration: none; 
 }
+
+/* El :hover se aplica igual al enlace */
 .cta-button:hover {
     background-color: #fff;
     color: #000;
