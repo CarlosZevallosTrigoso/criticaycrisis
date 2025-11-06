@@ -1,11 +1,9 @@
 /* --- Configuración Global --- */
 body {
-    /* CAMBIO AQUÍ: 
-      Quitamos la imagen de fondo y ponemos un color sólido
-      de 'fallback' por si el video no carga.
-    */
-    background-color: #000;
-    
+    background-image: url('assets/fondo.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,9 +19,6 @@ body {
 .content-wrapper {
     max-width: 650px;
     width: 100%;
-    /* Añadimos esto para que el contenido se ponga por encima del video */
-    position: relative;
-    z-index: 2;
 }
 
 /* --- Caja Principal Desplegable (<details>) --- */
@@ -43,6 +38,8 @@ body {
     line-height: 1.5;
     cursor: pointer;
     border-bottom: 1px solid #eee;
+    
+    /* Ocultamos el marcador de flecha/triángulo por defecto */
     list-style: none;
 }
 .info-question::-webkit-details-marker {
@@ -60,13 +57,13 @@ body {
 
 /* --- Texto de la pregunta (dentro del summary) --- */
 .question-text {
-    display: block;
+    display: block; /* Ocupa su propia línea */
 }
 
 /* --- El indicador "saber más" --- */
 .indicator {
-    display: block;
-    margin-top: 20px;
+    display: block; /* Ocupa su propia línea, debajo del texto */
+    margin-top: 20px; /* Espacio entre la pregunta y el indicador */
     font-size: 0.9rem;
     font-weight: 700;
     color: #333;
@@ -89,7 +86,7 @@ body {
     padding: 24px;
     font-size: 1rem;
     line-height: 1.6;
-    background-color: #F5F5F5; 
+    background-color: #F5F5F5; /* Fondo gris claro */
 }
 .info-content p:first-child {
     margin-top: 0;
@@ -98,7 +95,7 @@ body {
 
 /* --- Estilos para el botón (ahora un enlace) --- */
 .cta-button {
-    display: block;
+    display: block; /* Asegura que el <a> ocupe todo el ancho */
     width: 100%;
     box-sizing: border-box;
     background-color: #000;
@@ -112,9 +109,12 @@ body {
     text-align: center;
     cursor: pointer;
     transition: background-color 0.2s ease, color 0.2s ease;
+
+    /* Quita el subrayado por defecto del enlace */
     text-decoration: none; 
 }
 
+/* El :hover se aplica igual al enlace */
 .cta-button:hover {
     background-color: #fff;
     color: #000;
@@ -133,21 +133,21 @@ body {
 /* --- Estilos para la sección de Contacto --- */
     
 .contact-details {
-    margin-top: 20px;
+    margin-top: 20px; /* Espacio separador de la nota al pie */
 }
 
 .contact-trigger {
-    display: inline-block;
-    font-size: 0.75rem;
+    display: inline-block; /* Para que no ocupe todo el ancho */
+    font-size: 0.75rem;    /* Mismo tamaño que la nota al pie */
     color: #444;
     font-weight: 700;
     cursor: pointer;
-    list-style: none;
+    list-style: none;      /* Oculta marcador por defecto */
     transition: color 0.2s ease;
 }
 
 .contact-trigger:hover {
-    color: #000;
+    color: #000; /* Pequeño efecto hover */
 }
 
 .contact-trigger::-webkit-details-marker {
@@ -171,24 +171,11 @@ body {
 
 /* Estilo para el enlace de email */
 .contact-content a {
-    color: #000;
+    color: #000; /* Color negro para que resalte */
     text-decoration: underline;
     font-weight: 700;
 }
 
 .contact-content a:hover {
     color: #555;
-}
-
-/* AÑADIDO: Estilos para el video de fondo 
-*/
-#bg-video {
-    position: fixed; /* Lo fija en la pantalla */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Lo centra perfectamente */
-    min-width: 100vw;  /* Asegura que cubre todo el ancho */
-    min-height: 100vh; /* Asegura que cubre todo el alto */
-    object-fit: cover; /* Cubre el espacio, recortando si es necesario */
-    z-index: -1;       /* Lo pone detrás de todo */
 }
